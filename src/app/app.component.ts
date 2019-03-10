@@ -16,10 +16,26 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'My Ingredients',
       url: '/list',
       icon: 'list'
-    }
+    },{
+      title: 'Recipes',
+      url: '/recipe',
+      icon: 'list'
+    },{
+      title: 'Meal Planner',
+      url: '/mealplanner',
+      icon: 'list'
+    },{
+      title: 'Profile',
+      url: '/profile',
+      icon: 'list'
+    },{
+      title: 'Logout',
+      url: '/logout',
+      icon: 'list'
+    },
   ];
 
   constructor(
