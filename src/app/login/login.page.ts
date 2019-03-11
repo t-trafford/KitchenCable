@@ -17,6 +17,7 @@ const httpOptions = {
 })
 export class LoginPage implements OnInit {
 model = {email: '', password: ''};
+
   constructor(private http: HttpClient, private router: Router) {
 
   }
@@ -28,7 +29,10 @@ model = {email: '', password: ''};
      this.http.post<any>(environment.api+'/local/auth', this.model, httpOptions).pipe(
       tap((newHero: any) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<any>('addHero'))
-    ).subscribe(console.log)
+    ).subscribe((item)=>{
+      console.log('user logged in successfully', item);
+      this.router.navigate(['/home']);
+    });
      }
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
