@@ -1,9 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>recipe</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          Recipe
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
 
 <ion-content padding>
+  </ion-content>
 
-</ion-content>
+  <ion-tabs scrollX="true">
+      <!-- Tab bar -->
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="Overview">
+          <ion-icon name="folder"></ion-icon>
+          Overview
+        </ion-tab-button>
+        <ion-tab-button tab="Ingredients">
+          <ion-icon name="cart"></ion-icon>
+          Ingredients
+        </ion-tab-button>
+        <ion-tab-button tab="Steps">
+          <ion-icon name="list-box"></ion-icon>
+          Steps
+        </ion-tab-button>
+        <ion-tab-button tab="Nutrition">
+            <ion-icon name="medkit"></ion-icon>
+            Nutrition
+          </ion-tab-button>
+          
+      </ion-tab-bar>
+    </ion-tabs>
+
+

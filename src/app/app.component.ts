@@ -18,23 +18,23 @@ export class AppComponent {
     {
       title: 'My Ingredients',
       url: '/list',
-      icon: 'list'
+      icon: 'cart'
     },{
       title: 'Recipes',
       url: '/recipe',
-      icon: 'list'
+      icon: 'pizza'
     },{
       title: 'Meal Planner',
       url: '/mealplanner',
-      icon: 'list'
+      icon: 'alarm'
     },{
       title: 'Profile',
       url: '/profile',
-      icon: 'list'
+      icon: 'person'
     },{
       title: 'Logout',
       url: '/login',
-      icon: 'list'
+      icon: 'key'
     },
   ];
 

@@ -9,11 +9,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [scrollEvents]="true">
     <ion-card  class="welcome-card"  *ngFor="let recipe of recipes">
       <ion-card-header>
-        <ion-card-subtitle>{{recipe.sourceName}}</ion-card-subtitle>
+        <!-- <ion-card-subtitle>{{recipe.sourceName}}</ion-card-subtitle> -->
         <ion-card-title>{{recipe.title}}</ion-card-title>
       </ion-card-header>
       <img src="{{recipe.image}}" />
@@ -21,6 +20,10 @@
        {{recipe.instructions}}
       </ion-card-content> -->
     </ion-card>
-
+ <br>
 </ion-content>
+
+
+
+
 
