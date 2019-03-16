@@ -4,12 +4,13 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+        KitchenCable
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [scrollEvents]="true">
+    <ion-searchbar animated name="searchitem" ngModel></ion-searchbar>
     <ion-card  class="welcome-card"  *ngFor="let recipe of recipes">
       <ion-card-header>
         <!-- <ion-card-subtitle>{{recipe.sourceName}}</ion-card-subtitle> -->

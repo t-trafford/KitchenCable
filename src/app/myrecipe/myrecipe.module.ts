@@ -5,31 +5,23 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RecipePage } from './recipe.page';
+import { MyrecipePage } from './myrecipe.page';
 
 const routes: Routes = [
+  
   {
     path: 'tabs',
-    component: RecipePage,
+    component: MyrecipePage,
     children: [
       {
         path: 'tab1',
-        loadChildren: '../overview/overview.module#OverviewPageModule'
+        loadChildren: '../myrecipes/myrecipes.module#MyrecipesPageModule'
       },
       {
         path: 'tab2',
-        loadChildren: '../ingredients/ingredients.module#IngredientsPageModule'
-      },
-      {
-        path: 'tab3',
-        loadChildren: '../steps/steps.module#StepsPageModule'
-      },
-      {
-        path: 'tab4',
-        loadChildren: '../nutrition/nutrition.module#NutritionPageModule'
-      },
-      
-    ]
+        loadChildren: '../favorite/favorite.module#FavoritePageModule'
+      }
+   ]
   },
   {
     path:'',
@@ -45,6 +37,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [RecipePage]
+  declarations: [MyrecipePage]
 })
-export class RecipePageModule {}
+export class MyrecipePageModule {}

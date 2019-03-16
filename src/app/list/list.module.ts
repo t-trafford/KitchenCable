@@ -13,9 +13,26 @@ import { ListPage } from './list.page';
     IonicModule,
     RouterModule.forChild([
       {
-        path: '',
-        component: ListPage
+        path: 'tabs',
+        component: ListPage,
+        children: [
+          {
+            path: 'tab1',
+            loadChildren: '../parseingredient/parseingredient.module#ParseingredientPageModule'
+          },
+          {
+            path: 'tab2',
+            loadChildren: '../myingredient/myingredient.module#MyingredientPageModule'
+          }
+          
+        ]
+      },
+      {
+        path:'',
+        redirectTo: 'tabs/tab1',
+        pathMatch: 'full'
       }
+
     ])
   ],
   declarations: [ListPage]

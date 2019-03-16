@@ -16,7 +16,7 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'My Ingredients',
+      title: 'Manage Ingredients',
       url: '/list',
       icon: 'cart'
     },{
@@ -31,6 +31,11 @@ export class AppComponent {
       title: 'Profile',
       url: '/profile',
       icon: 'person'
+    },
+    {
+      title: 'My Recipes',
+      url: '/myrecipe',
+      icon: 'pizza'
     },{
       title: 'Logout',
       url: '/login',
