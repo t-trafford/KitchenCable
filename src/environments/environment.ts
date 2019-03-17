@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:9000',
+  api: 'http://localhost:3000/v1',
   foodAPI: {
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-    key: '613a29e948msh9ae0998bc704e62p17b6a4jsn3b0f0d0f362'
+    key: '613a29e948msh9ae0998bc704e62p17b6a4jsn3b0f0d0f3623'
   }
 };
 
