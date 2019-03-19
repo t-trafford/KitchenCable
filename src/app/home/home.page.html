@@ -4,27 +4,37 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-        KitchenCable
+        Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [scrollEvents]="true">
+
+<ion-content>
+
     <ion-searchbar animated name="searchitem" ngModel></ion-searchbar>
-    <ion-card  class="welcome-card"  *ngFor="let recipe of recipes">
-      <ion-card-header>
-        <!-- <ion-card-subtitle>{{recipe.sourceName}}</ion-card-subtitle> -->
-        <ion-card-title>{{recipe.title}}</ion-card-title>
-      </ion-card-header>
-      <img src="{{recipe.image}}" />
-      <!-- <ion-card-content>
-       {{recipe.instructions}}
-      </ion-card-content> -->
+
+
+    <ion-card *ngFor="let recipe of recipes">
+  
+      <img src="{{recipe.image}}"/>
+
+       
+  
+      <ion-row align-self-stretch>
+        <ion-col size="10">
+            {{recipe.title}} 
+        </ion-col>
+        <ion-col text-right>
+            <ion-icon name='star-outline'></ion-icon>
+        </ion-col>
+       
+        
+      </ion-row>
+  
     </ion-card>
- <br>
+  
+ 
 </ion-content>
-
-
-
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,9 +9,10 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class HomePage implements OnInit {
   recipes: any = [];
-  constructor(private recipe: RecipeService) {}
+  constructor(private recipe: RecipeService, public loadingCtrl: LoadingController) {}
 
   ngOnInit(): void {
+    
     this.recipe.getRandomRecipes().subscribe(
       res => {
         this.recipes = res.recipes;
@@ -20,4 +22,15 @@ export class HomePage implements OnInit {
       }
     );
   }
+
+  // presentLoading() {
+  //   this.loadingCtrl.create({
+  //     content: 'Please wait...',
+  //     duration: 3000,
+  //     dismissOnPageChange: true
+  //   }).present();
+  // }
+
+ 
+  
 }
