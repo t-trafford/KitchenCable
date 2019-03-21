@@ -23,13 +23,7 @@ export class HomePage implements OnInit {
     );
   }
 
-  // presentLoading() {
-  //   this.loadingCtrl.create({
-  //     content: 'Please wait...',
-  //     duration: 3000,
-  //     dismissOnPageChange: true
-  //   }).present();
-  // }
+
 
  
   

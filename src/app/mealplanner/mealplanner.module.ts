@@ -7,10 +7,28 @@ import { IonicModule } from '@ionic/angular';
 
 import { MealplannerPage } from './mealplanner.page';
 
+
+
 const routes: Routes = [
   {
-    path: '',
-    component: MealplannerPage
+    path: 'tabs',
+    component: MealplannerPage,
+    children: [
+      {
+        path: 'tab1',
+        loadChildren: '../daily/daily.module#DailyPageModule'
+      },
+      {
+        path: 'tab2',
+        loadChildren: '../weekly/weekly.module#WeeklyPageModule'
+      },
+      
+    ]
+  },
+  {
+    path:'',
+    redirectTo: 'tabs/tab1',
+    pathMatch: 'full'
   }
 ];
 

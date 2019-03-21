@@ -29,7 +29,9 @@ const routes: Routes = [
   { path: 'nutrition', loadChildren: './nutrition/nutrition.module#NutritionPageModule' },
   { path: 'myrecipe', loadChildren: './myrecipe/myrecipe.module#MyrecipePageModule' },
   { path: 'myrecipes', loadChildren: './myrecipes/myrecipes.module#MyrecipesPageModule' },
-  { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' }
+  { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
+  { path: 'daily', loadChildren: './daily/daily.module#DailyPageModule' },
+  { path: 'weekly', loadChildren: './weekly/weekly.module#WeeklyPageModule' }
 ];
 
 @NgModule({

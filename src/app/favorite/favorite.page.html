@@ -1,3 +1,26 @@
-<ion-content padding>
-Favorites:
-</ion-content>
+
+<ion-content>
+
+
+
+    <ion-card *ngFor="let recipe of recipes">
+  
+      <img src="{{recipe.image}}"/>
+ 
+       
+  
+      <ion-row align-self-stretch>
+        <ion-col size="10">
+            {{recipe.title}} 
+        </ion-col>
+        <ion-col text-right>
+            <ion-icon name='star-outline'></ion-icon>
+        </ion-col>
+       
+        
+      </ion-row>
+  
+    </ion-card>
+  
+ 
+ </ion-content>

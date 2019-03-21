@@ -11,14 +11,13 @@
     </ion-toolbar>
   </ion-header>
   
-<ion-content [scrollEvents]="true">
+<ion-content>
     <ion-item>
         <ion-label position="floating">Hi, Tanay Bhatt :) </ion-label>
         
       </ion-item>
   <ion-list>
-    <ion-infinite-scroll>
-      <ion-card>
+      <ion-card scrollX="true">
         <ion-label position="floating">Diet:</ion-label>
         <ion-item *ngFor="let diet of diets">
           <ion-label>{{diet}}</ion-label>
@@ -26,11 +25,7 @@
         </ion-item>
 
       </ion-card>
-    </ion-infinite-scroll>
 
-  </ion-list>
-
-  <ion-list>
     <ion-card>
       <ion-label position="floating">Intolerance:</ion-label>
 
@@ -39,9 +34,7 @@
         <ion-checkbox></ion-checkbox>
       </ion-item>
     </ion-card>
-  </ion-list>
 
-  <ion-list>
     <ion-card>
         <ion-item>
             <ion-label position="floating">Excluded Ingredients:</ion-label>
