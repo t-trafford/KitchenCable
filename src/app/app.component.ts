@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './_services';
+import { User } from './_models';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnInit {
   public appPages = [
     {
       title: 'Home',
@@ -47,15 +48,18 @@ export class AppComponent {
       }
     },
   ];
-  user: any = {};
+  user: User;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    private cd: ChangeDetectorRef
   ) {
     this.initializeApp();
+  }
+  ngOnInit() {
     this.user = this.authenticationService.currentUserValue;
   }
 
@@ -64,5 +68,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  ngAfterViewInit() {
+    this.cd.detectChanges();
   }
 }
