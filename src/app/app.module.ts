@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
-import { RecipeService } from './services/recipe.service';
+import { RecipeService } from './_services/recipe.service';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 

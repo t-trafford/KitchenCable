@@ -4,6 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+
+<ion-content>
+
+
+
+  <ion-card *ngFor="let recipe of recipes">
+
+      <ion-content>
+          {{recipe.steps}} 
+      </ion-content>
+
+      <!-- https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=576d9d15e4b0bd97e2279a23      -->
+
+  </ion-card>
+
 
 </ion-content>
