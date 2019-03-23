@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthenticationService } from './_services';
 
 @Component({
   selector: 'app-root',
@@ -39,16 +40,23 @@ export class AppComponent {
     },{
       title: 'Logout',
       url: '/login',
-      icon: 'key'
+      icon: 'key',
+      click: () => {
+        this.authenticationService.logout();
+        location.reload();
+      }
     },
   ];
+  user: any = {};
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public authenticationService: AuthenticationService
   ) {
     this.initializeApp();
+    this.user = this.authenticationService.currentUserValue;
   }
 
   initializeApp() {

@@ -13,15 +13,15 @@
   
 <ion-content>
     <ion-item>
-        <ion-label position="floating">Hi, Tanay Bhatt :) </ion-label>
+        <ion-label position="floating">Hi, {{user.name}} :) </ion-label>
         
       </ion-item>
   <ion-list>
       <ion-card scrollX="true">
         <ion-label position="floating">Diet:</ion-label>
         <ion-item *ngFor="let diet of diets">
-          <ion-label>{{diet}}</ion-label>
-          <ion-checkbox position=floating></ion-checkbox>
+          <ion-label>{{diet.title}}</ion-label>
+          <ion-checkbox [(ngModel)]="diet.isChecked" position=floating></ion-checkbox>
         </ion-item>
 
       </ion-card>
@@ -30,8 +30,8 @@
       <ion-label position="floating">Intolerance:</ion-label>
 
       <ion-item *ngFor="let intolerance of intolerances">
-        <ion-label>{{intolerance}}</ion-label>
-        <ion-checkbox></ion-checkbox>
+        <ion-label>{{intolerance.title}}</ion-label>
+        <ion-checkbox [(ngModel)]="intolerance.isChecked"></ion-checkbox>
       </ion-item>
     </ion-card>
 
@@ -49,7 +49,7 @@
 
 
   <br>
-  <ion-button expand="block">Save</ion-button>&nbsp;
+  <ion-button (click)="save()" expand="block">Save</ion-button>&nbsp;
 
 
 </ion-content>

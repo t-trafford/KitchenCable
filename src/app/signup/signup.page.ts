@@ -3,66 +3,38 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { RouterModule, Routes } from '@angular/router';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { User } from '../_models';
+import { AuthenticationService } from '../_services';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
-  styleUrls: ['./signup.page.scss'],
+  styleUrls: ['./signup.page.scss']
 })
 export class SignupPage implements OnInit {
+  model: User = <User>{};
 
-  model = {email: '', password: '', };
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
 
-  constructor(private http: HttpClient, private router: Router) {
+  ngOnInit() {}
 
-  }
-
-  ngOnInit() {  
-  }
-  
   signup() {
-     this.http.post<any>(environment.api+'/auth/login', this.model, httpOptions).pipe(
-      tap((newHero: any) => this.log(`added hero w/ id=${newHero.id}`)),
-      catchError(this.handleError<any>('addHero'))
-    ).subscribe((item)=>{
-      if(item){
-        console.log('user logged in successfully', item);
-        this.router.navigate(['/home']);
+    this.authenticationService.register_local(this.model).subscribe(
+      item => {
+        if (item) {
+          console.log('user registered in successfully', item);
+          this.router.navigate(['/home']);
+        }
+      },
+      err => {
+        console.log('ERROR', err);
       }
-    }, err => {
-      console.log('ERROR', err);
-    });
-
-     }
-     
-    private handleError<T> (operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-   
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
-   
-        // TODO: better job of transforming error for user consumption
-        this.log(`${operation} failed: ${error.message}`);
-   
-        // Let the app keep running by returning an empty result.
-        return throwError(error);
-        // return of(result as T);
-      };
-    }
-
-    
-  
-   
-    /** Log a HeroService message with the MessageService */
-    private log(message: string) {
-      console.log(`HeroService: ${message}`);
-    }
-
-
+    );
+  }
 }
