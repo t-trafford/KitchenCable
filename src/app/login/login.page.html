@@ -5,23 +5,32 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input [(ngModel)]="model.email" type="Email"></ion-input>
-  </ion-item>
-<ion-item>
-  <ion-label position="floating">Password</ion-label>
-  <ion-input [(ngModel)]="model.password" type="Password"></ion-input>
-</ion-item>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <ion-item class="form-group">
+            <ion-label position="floating" for="email">Email</ion-label>
+            <ion-input type="Email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email ></ion-input>
+          </ion-item>
+          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div style="color:red; padding-top: 0.2rem"  *ngIf="email.errors.required">Email is required</div>
+              <div style="color:red; padding-top: 0.2rem"  *ngIf="email.errors.email">Email must be a valid email address</div>
+          </div>
+          <ion-item class="form-group">
+              <ion-label for="password" position="floating">Password</ion-label>
+              <ion-input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" ></ion-input>
+            </ion-item>
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                <div style="color:red; padding-top: 0.2rem" *ngIf="password.errors.required">Password is required</div>
+                <div style="color:red; padding-top: 0.2rem" *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
 <br>
 <ion-button (click)="login()" >Login</ion-button>&nbsp;&nbsp;
 <ion-button href="/signup">Signup</ion-button>
-
-<br><br><br>
+</form>
+<!-- <br><br><br>
 
 
 <a href="#" class="fa fa-facebook" align="center">Sign in with Facebook  <ion-icon name="logo-facebook"></ion-icon></a><br><br><br>
-<a href="#" class="fa fa-google" align="center">Sign in with Google  <ion-icon name="logo-google"></ion-icon></a>
+<a href="#" class="fa fa-google" align="center">Sign in with Google  <ion-icon name="logo-google"></ion-icon></a> -->
 
 
 </ion-content>

@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit, OnInit {
       icon: 'home'
     },
     {
-      title: 'Manage Ingredients',
+      title: 'Ingredients',
       url: '/list',
       icon: 'cart'
     },{

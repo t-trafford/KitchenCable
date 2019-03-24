@@ -20,6 +20,12 @@ export class LoginPage implements OnInit {
 model = {email: '', password: ''};
 returnUrl: string;
 
+
+// onSubmit() {
+  //   alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+  // }
+
+
   constructor(private http: HttpClient, private router: Router,
     private route: ActivatedRoute, private authenticationService: AuthenticationService) {
 

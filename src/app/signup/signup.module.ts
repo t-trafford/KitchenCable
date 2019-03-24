@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SignupPage } from './signup.page';
+import { MustMatchDirective } from '../_helpers/must-match.directive';
 
 const routes: Routes = [
   {
@@ -20,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SignupPage]
+  declarations: [SignupPage, MustMatchDirective]
 })
 export class SignupPageModule {}

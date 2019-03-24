@@ -53,7 +53,7 @@ export class ProfilePage implements OnInit {
     this.user.intolerances = this.intolerances.filter(a => a.isChecked).map(a => a.title);
     this.userService.update((this.user._id || this.user['id']), this.user)
     .subscribe(usr => {
-      this.alertService.presentToast('User saved Successfully!');
+      this.alertService.presentToast('Profile saved Successfully!');
       this.fetch_user_details();
     });
   }

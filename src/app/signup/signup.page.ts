@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../_models';
-import { AuthenticationService } from '../_services';
+import { AuthenticationService, UserService, AlertMessageService, LocalDataService } from '../_services';
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +16,19 @@ import { AuthenticationService } from '../_services';
 export class SignupPage implements OnInit {
   model: User = <User>{};
 
+ // onSubmit() {
+  //   alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+  // }
+
+
   constructor(
     private http: HttpClient,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private userService: UserService,
+    private alertService: AlertMessageService,
+    private localDataService: LocalDataService
+
   ) {}
 
   ngOnInit() {}
@@ -30,6 +39,8 @@ export class SignupPage implements OnInit {
         if (item) {
           console.log('user registered in successfully', item);
           this.router.navigate(['/home']);
+          this.alertService.presentToast('User Created Successfully!');
+
         }
       },
       err => {
