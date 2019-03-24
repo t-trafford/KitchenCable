@@ -1,17 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ingredients</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content padding>
-
+<div class="demo-1">Ingredients: </div>
 <ion-card *ngFor="let ingredient of recipe_ingredients">
     <ion-row>
+        <div class="col col-33">
         <img src="{{ingredient.image}}"/>
+        </div>
       </ion-row>
-      <ion-row align-self-stretch>
-        <ion-col size="10">
+      <ion-row>
+        <ion-col>
             {{ingredient.originalString}}
         </ion-col>
       </ion-row>

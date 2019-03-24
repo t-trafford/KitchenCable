@@ -1,28 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>overview</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-
-<ion-content>
 
 
 
+<ion-content padding>
+<div class="demo-1">Overview:  </div> 
   <ion-card>
-      <ion-card-header>
-        {{recipe_overview.title}}
+      <ion-card-header class="recipetitle">
+      {{recipe_overview.title}} 
 
       </ion-card-header>
       <ion-card-content [innerHTML]="recipe_overview.summary">
       </ion-card-content>
 
       <!-- https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=55e1ba7fe4b061238f36d289 -->
-     
-
-  </ion-card>
-
-
+      </ion-card>
 </ion-content>
 
 
