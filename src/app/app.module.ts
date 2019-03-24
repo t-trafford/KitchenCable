@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,6 +13,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { RecipeService } from './_services/recipe.service';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+
+export class CustomRouteReuseStrategy implements RouteReuseStrategy {
+  shouldDetach(route: ActivatedRouteSnapshot): boolean { return false; }
+  store(route: ActivatedRouteSnapshot, detachedTree: DetachedRouteHandle): void {}
+  shouldAttach(route: ActivatedRouteSnapshot): boolean { return false; }
+  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle { return null; }
+  shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+    return curr.routeConfig === null && future.routeConfig === null;
+  }
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +37,8 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    // { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
@@ -35,3 +46,4 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
   exports: []
 })
 export class AppModule {}
+

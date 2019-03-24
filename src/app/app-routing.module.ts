@@ -25,15 +25,15 @@ const routes: Routes = [
   { path: 'mealplanner', loadChildren: './mealplanner/mealplanner.module#MealplannerPageModule', canActivate: [AuthGuard] },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
   { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
-  { path: 'parseingredient', loadChildren: './parseingredient/parseingredient.module#ParseingredientPageModule', canActivate: [AuthGuard] },
-  { path: 'myingredient', loadChildren: './myingredient/myingredient.module#MyingredientPageModule', canActivate: [AuthGuard] },
-  { path: 'overview', loadChildren: './overview/overview.module#OverviewPageModule', canActivate: [AuthGuard] },
-  { path: 'ingredients', loadChildren: './ingredients/ingredients.module#IngredientsPageModule', canActivate: [AuthGuard] },
-  { path: 'steps', loadChildren: './steps/steps.module#StepsPageModule', canActivate: [AuthGuard] },
-  { path: 'nutrition', loadChildren: './nutrition/nutrition.module#NutritionPageModule', canActivate: [AuthGuard] },
-  { path: 'myrecipe', loadChildren: './myrecipe/myrecipe.module#MyrecipePageModule', canActivate: [AuthGuard] },
-  { path: 'myrecipes', loadChildren: './myrecipes/myrecipes.module#MyrecipesPageModule', canActivate: [AuthGuard] },
-  { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule', canActivate: [AuthGuard] },
+  { path: 'parseingredient', data: { reuse: true }, loadChildren: './parseingredient/parseingredient.module#ParseingredientPageModule', canActivate: [AuthGuard] },
+  { path: 'myingredient', data: { reuse: true }, loadChildren: './myingredient/myingredient.module#MyingredientPageModule', canActivate: [AuthGuard] },
+  { path: 'overview', data: { reuse: true }, loadChildren: './overview/overview.module#OverviewPageModule', canActivate: [AuthGuard] },
+  { path: 'ingredients', data: { reuse: true }, loadChildren: './ingredients/ingredients.module#IngredientsPageModule', canActivate: [AuthGuard] },
+  { path: 'steps', data: { reuse: true }, loadChildren: './steps/steps.module#StepsPageModule', canActivate: [AuthGuard] },
+  { path: 'nutrition', data: { reuse: true }, loadChildren: './nutrition/nutrition.module#NutritionPageModule', canActivate: [AuthGuard] },
+  { path: 'myrecipe', data: { reuse: true }, loadChildren: './myrecipe/myrecipe.module#MyrecipePageModule', canActivate: [AuthGuard] },
+  { path: 'myrecipes', data: { reuse: true }, loadChildren: './myrecipes/myrecipes.module#MyrecipesPageModule', canActivate: [AuthGuard] },
+  { path: 'favorite', data: { reuse: true }, loadChildren: './favorite/favorite.module#FavoritePageModule', canActivate: [AuthGuard] },
   { path: 'daily', loadChildren: './daily/daily.module#DailyPageModule', canActivate: [AuthGuard] },
   { path: 'weekly', loadChildren: './weekly/weekly.module#WeeklyPageModule', canActivate: [AuthGuard] },
   // otherwise redirect to home
@@ -41,7 +41,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

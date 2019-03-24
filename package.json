@@ -37,6 +37,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "ts-xlsx": "0.0.11",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -69,7 +70,7 @@
   },
   "description": "An Ionic project",
   "config": {
-   "ionic_copy": "./config/copy.config.js"
+    "ionic_copy": "./config/copy.config.js"
   },
   "cordova": {
     "plugins": {
