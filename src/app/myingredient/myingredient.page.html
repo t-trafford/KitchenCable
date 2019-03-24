@@ -3,4 +3,16 @@
 <ion-content padding [scrollEvents]="true">
     <ion-searchbar animated name="searchitem" ngModel></ion-searchbar>
 
+    <ion-card *ngFor="let ingredient of ingredients">
+ 
+        <ion-row align-self-stretch>
+          <ion-col size="10">
+              {{ingredient.ingredient}} 
+          </ion-col>         
+          
+        </ion-row>
+    
+      </ion-card>
+
+    
 </ion-content>
