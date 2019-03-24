@@ -4,17 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content padding>
 
-<ion-card *ngFor="let recipe of recipes">
-
-  <ion-content>
-      {{recipe.extendedIngredients}} 
-  </ion-content>
-
-      <!-- iterate over array see this link extendedIngredients https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=55e1ba5ee4b0a29b2c360756 -->
- 
-
+<ion-card *ngFor="let ingredient of recipe_ingredients">
+    <ion-row>
+        <img src="{{ingredient.image}}"/>
+      </ion-row>
+      <ion-row align-self-stretch>
+        <ion-col size="10">
+            {{ingredient.originalString}}
+        </ion-col>
+      </ion-row>
+    <!-- iterate over array see this link extendedIngredients https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=55e1ba5ee4b0a29b2c360756 -->
 </ion-card>
+</ion-content>
 
 
 

@@ -14,10 +14,10 @@
 
     <ion-searchbar animated name="searchitem" ngModel></ion-searchbar>
 
-
     <ion-card *ngFor="let recipe of recipes">
-  
-      <img src="{{recipe.image}}"/>
+      <ion-row  (click)="viewDeatils(recipe)">
+        <img src="{{recipe.image}}"/>
+      </ion-row>
 
        
   

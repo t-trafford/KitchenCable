@@ -27,12 +27,11 @@ const routes: Routes = [
       {
         path: 'tab4',
         loadChildren: '../nutrition/nutrition.module#NutritionPageModule'
-      },
-      
+      }
     ]
   },
   {
-    path:'',
+    path: '',
     redirectTo: 'tabs/tab1',
     pathMatch: 'full'
   }

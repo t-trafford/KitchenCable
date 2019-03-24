@@ -22,10 +22,6 @@ export class AppComponent implements AfterViewInit, OnInit {
       url: '/list',
       icon: 'cart'
     },{
-      title: 'Recipes',
-      url: '/recipe',
-      icon: 'pizza'
-    },{
       title: 'Meal Planner',
       url: '/mealplanner',
       icon: 'alarm'

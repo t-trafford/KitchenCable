@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
-  { path: 'recipe', loadChildren: './recipe/recipe.module#RecipePageModule', canActivate: [AuthGuard] },
+  { path: 'recipe/:id', loadChildren: './recipe/recipe.module#RecipePageModule', canActivate: [AuthGuard] },
   { path: 'mealplanner', loadChildren: './mealplanner/mealplanner.module#MealplannerPageModule', canActivate: [AuthGuard] },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
   { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },

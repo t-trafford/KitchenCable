@@ -5,12 +5,11 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card *ngFor="let recipe of recipes">
+<ion-card>
 
-  <ion-content>
-    {{recipes}}
+  <ion-card-content [innerHtml]="recipe_nutrition">
       <!-- {{}} get response body its all html  -->
-  </ion-content>
+  </ion-card-content>
 
   <!-- https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=596be468e4b02ae5957fb398  -->
 

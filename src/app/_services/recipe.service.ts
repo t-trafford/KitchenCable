@@ -16,20 +16,21 @@ import { environment } from 'src/environments/environment';
 export class RecipeService {
   httpOptions = {
     headers: new HttpHeaders({
-      'X-RapidAPI-Key': environment.foodAPI.key,
-      'Content-Type': 'application/json'
+      // 'X-RapidAPI-Key': environment.foodAPI.key,
+      // 'Content-Type': 'application/json'
+      Accept: 'text/html'
     })
   };
   urls = {
-    random_recipe_url: '/recipes/random?number=20',
-    recipe_overview_url: '/recipes/+(req.params.id||4632)+/summary',
-    recipe_ingredient_url: '/recipes/"+(req.params.id||4632)+"/information?',
-    recipe_steps_url: '/recipes/"+(req.params.id||324694)+"/analyzedInstructions?',
-    recipe_nutrition_url: '/food/products/"+(req.params.id||262682)+"/nutritionWidget?',
+    random_recipe_url: '/rapidApi/recipes/random?number=20',
+    recipe_overview_url: (id) => `/rapidApi/recipes/${id}/summary`,
+    recipe_ingredient_url: (id) => `/rapidApi/recipes/${id}/information?`,
+    recipe_steps_url: (id) => `/rapidApi/recipes/${id}/analyzedInstructions?`,
+    recipe_nutrition_url: (id) => `/rapidApi/food/products/${id}/nutritionWidget?`,
     recipe_autocompleterecipe_url: '/recipes/autocomplete?query=',
     // recipe_searchrecipe_url: '/recipes/search?query=',
-    recipe_autocompleteingredient_url: '/recipes/autocomplete?query=',
-    recipe_guessnutrition_url: '/recipes/guessNutrition?ingredients=',
+    recipe_autocompleteingredient_url: '/rapidApi/recipes/autocomplete?query=',
+    recipe_guessnutrition_url: '/rapidApi/recipes/guessNutrition?ingredients=',
 
   };
   constructor(private http: HttpClient) {}
@@ -37,8 +38,7 @@ export class RecipeService {
   getRandomRecipes(): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.random_recipe_url}`,
-        this.httpOptions
+        `${environment.api}/${this.urls.random_recipe_url}`
       )
       .pipe(
         map(this.extractData),
@@ -46,11 +46,10 @@ export class RecipeService {
       );
   }
 
-  getRecipesOverview(): Observable<any> {
+  getRecipesOverview(id: string): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_overview_url}`,
-        this.httpOptions
+        `${environment.api}/${this.urls.recipe_overview_url(id)}`
       )
       .pipe(
         map(this.extractData),
@@ -58,11 +57,10 @@ export class RecipeService {
       );
   }
 
-  getRecipesIngredient(): Observable<any> {
+  getRecipesIngredient(id: string): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_ingredient_url}`,
-        this.httpOptions
+        `${environment.api}/${this.urls.recipe_ingredient_url(id)}`
       )
       .pipe(
         map(this.extractData),
@@ -70,11 +68,10 @@ export class RecipeService {
       );
   }
 
-  getRecipesSteps(): Observable<any> {
+  getRecipesSteps(id: string): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_steps_url}`,
-        this.httpOptions
+        `${environment.api}/${this.urls.recipe_steps_url(id)}`
       )
       .pipe(
         map(this.extractData),
@@ -82,10 +79,10 @@ export class RecipeService {
       );
   }
 
-  getRecipesNutrition(): Observable<any> {
+  getRecipesNutrition(id: string): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_nutrition_url}`,
+        `${environment.api}/${this.urls.recipe_nutrition_url(id)}`,
         this.httpOptions
       )
       .pipe(
@@ -98,8 +95,7 @@ export class RecipeService {
   getAutocompleteRecipe(): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_autocompleterecipe_url}`,
-        this.httpOptions
+        `${environment.api}/${this.urls.recipe_autocompleterecipe_url}`
       )
       .pipe(
         map(this.extractData),
@@ -110,8 +106,7 @@ export class RecipeService {
   getAutocompleteIngredient(): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_autocompleteingredient_url}`,
-        this.httpOptions
+        `${environment.api}/${this.urls.recipe_autocompleteingredient_url}`
       )
       .pipe(
         map(this.extractData),
@@ -122,7 +117,7 @@ export class RecipeService {
   getGuessNutrition(): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.foodAPI.url}/${this.urls.recipe_guessnutrition_url}`,
+        `${environment.api}/${this.urls.recipe_guessnutrition_url}`,
         this.httpOptions
       )
       .pipe(

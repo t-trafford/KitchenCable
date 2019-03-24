@@ -6,6 +6,7 @@ import { ToastController } from '@ionic/angular';
 
 import { FavoriteService, LocalDataService, AlertMessageService } from '../_services';
 import { Favorite} from '../_models';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,12 @@ import { Favorite} from '../_models';
 })
 export class HomePage implements OnInit {
   recipes: any = [];
-  constructor(private recipe: RecipeService, public loadingCtrl: LoadingController) {}
+  constructor(private recipe: RecipeService, public loadingCtrl: LoadingController,
+    private router: Router,
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    
+
     this.recipe.getRandomRecipes().subscribe(
       res => {
         this.recipes = res.recipes;
@@ -28,8 +31,8 @@ export class HomePage implements OnInit {
     );
   }
 
-
-
- 
-  
+  viewDeatils(recipe: any) {
+    this.router.navigate(['/recipe', recipe.id]);
+    console.log(recipe.id);
+  }
 }
