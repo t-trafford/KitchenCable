@@ -12,32 +12,30 @@
   </ion-header>
   
 <ion-content>
-    <ion-item>
-        <ion-label position="floating">Hi, {{user.name}} :) </ion-label>
+  <br>
+          <ion-label class="demo-4" position="floating">Hi, {{user.name}} :) </ion-label>
         
-      </ion-item>
-  <ion-list>
       <ion-card scrollX="true">
-        <ion-label position="floating">Diet:</ion-label>
+        <ion-label class="demo-1" position="floating">Diet:</ion-label>
         <ion-item *ngFor="let diet of diets">
-          <ion-label>{{diet.title}}</ion-label>
+          <ion-label class="demo-3">{{diet.title}}</ion-label>
           <ion-checkbox [(ngModel)]="diet.isChecked" position=floating></ion-checkbox>
         </ion-item>
 
       </ion-card>
 
     <ion-card>
-      <ion-label position="floating">Intolerance:</ion-label>
+      <ion-label class="demo-1" position="floating">Intolerance:</ion-label>
 
       <ion-item *ngFor="let intolerance of intolerances">
-        <ion-label>{{intolerance.title}}</ion-label>
+        <ion-label class="demo-3">{{intolerance.title}}</ion-label>
         <ion-checkbox [(ngModel)]="intolerance.isChecked"></ion-checkbox>
       </ion-item>
     </ion-card>
 
     <ion-card>
         <ion-item>
-            <ion-label position="floating">Excluded Ingredients:</ion-label>
+            <ion-label class="demo-2" position="floating">Excluded Ingredients:</ion-label>
             <ion-input type=text></ion-input>
           </ion-item>
           <br>
@@ -45,7 +43,6 @@
         <ion-button size=default slot="start">Add</ion-button>
       </ion-item>
     </ion-card>
-  </ion-list>
 
 
   <br>

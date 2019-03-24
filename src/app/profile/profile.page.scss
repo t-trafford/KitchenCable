@@ -5,3 +5,75 @@ ion-scroll {
     height: 100px;
     }
 
+    .demo-1{
+        margin: 0em 0 0em 0;
+        color: #180447;
+        font-weight: 100;
+        font-size: 25px;
+        line-height: 40px;
+        text-shadow: #421474;
+        font-family: 'Orienta', sans-serif;
+    }
+
+
+    .demo-2{
+        margin: 0em 0 0em 0;
+        color: #180447;
+        font-weight: 100;
+        font-size: 20px;
+        line-height: 40px;
+        text-shadow: #421474;
+        font-family: 'Orienta', sans-serif;
+    }
+
+
+
+    .demo-3{
+        margin: 0em 0 0em 0;
+        color: #451f9e;
+        font-weight: lighter;
+        font-size: 15px;
+        font-family: 'Orienta', sans-serif;
+    }
+
+    .demo-4{
+        margin: 0.5em 0.5 0em 0;
+        color: #180447;
+        padding-left: 1em;
+        padding-bottom: 22em;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 40px;
+        text-shadow: #134154;
+        font-family: 'Orienta', sans-serif;
+    }
+
+    .demo-5{
+        margin: 0.5em 0.5 0em 0;
+        color: #180447;
+        padding-left: 1em;
+        padding-bottom: 22em;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 40px;
+        text-shadow: #134154;
+        font-family: 'Orienta', sans-serif;
+    }
+
+   
+
+    ion-checkbox{
+        background: #FFFFFF;
+         border-width: 1px !important;
+         border-style: solid !important;
+         border-radius: 4px;
+         border-color : #451f9e !important;
+         --height : 1px;
+         --width: 1px;
+         --checkmark-color: #451f9e !important;
+         --background-checked: #FFFFFF;
+         --border-color: #FFFFFF;
+         --border-color-checked :#FFFFFF;
+       }
+
+    
