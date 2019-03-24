@@ -8,7 +8,9 @@
         <ion-col size="10">
             {{recipe.title}} 
         </ion-col>       
-        
+        <ion-col text-right (click)="removeFavorite(recipe.id)">
+            <ion-icon name='star'></ion-icon>
+        </ion-col>
       </ion-row>
   
     </ion-card>
