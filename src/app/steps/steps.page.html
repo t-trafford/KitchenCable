@@ -1,19 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>steps</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 
 <ion-content padding>
-
+<div class="demo-1">Steps: </div>
 
 
   <div  *ngFor="let recipe_step of recipe_steps">
       <ion-card *ngFor="let step of recipe_step.steps">
 
           <ion-card-header>
-              {{step.number}}. {{step.step}} 
+             <b> {{step.number}}.</b>  {{step.step}} 
           </ion-card-header>
 
       <!-- https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=576d9d15e4b0bd97e2279a23      -->
