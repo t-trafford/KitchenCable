@@ -25,7 +25,7 @@
         <ion-col size="10">
             {{recipe.title}} 
         </ion-col>
-        <ion-col text-right>
+        <ion-col text-right (click)="addFavorite(recipe.id)">
             <ion-icon name='star-outline'></ion-icon>
         </ion-col>
        

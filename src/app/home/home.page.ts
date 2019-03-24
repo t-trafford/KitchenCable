@@ -15,7 +15,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
   recipes: any = [];
+  favorite: Favorite = <Favorite>{};
   constructor(private recipe: RecipeService, public loadingCtrl: LoadingController,
+    private favoriteService: FavoriteService,
     private router: Router,
     private route: ActivatedRoute) {}
 
@@ -24,6 +26,17 @@ export class HomePage implements OnInit {
     this.recipe.getRandomRecipes().subscribe(
       res => {
         this.recipes = res.recipes;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+  addFavorite(id: string): void {
+    this.favorite.recipe = id;
+    this.favoriteService.post(this.favorite).subscribe(
+      res => {
+        console.log('Added Successfully!!');
       },
       err => {
         console.log(err);

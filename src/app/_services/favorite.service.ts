@@ -10,18 +10,21 @@ export class FavoriteService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<Favorite[]>(`${environment.api}/favorites`);
+        return this.http.get<Favorite[]>(`${environment.api}/favoriteRecipes`);
     }
-    // profile() {
-    //     return this.http.get<Favorite>(`${environment.api}/users/profile`);
-    // }
-    // get(id: string) {
-    //     return this.http.get<Favorite>(`${environment.api}/users/${id}`);
-    // }
-    // put(id: string, model: Favorite) {
-    //     return this.http.put<Favorite>(`${environment.api}/users/${id}`, model);
-    // }
-    // update(id: string, model: Favorite) {
-    //     return this.http.patch<Favorite>(`${environment.api}/users/${id}`, model);
-    // }
+    details() {
+        return this.http.get<Favorite>(`${environment.api}/favoriteRecipes/details`);
+    }
+    get(id: string) {
+        return this.http.get<Favorite>(`${environment.api}/favoriteRecipes/${id}`);
+    }
+    post(model: Favorite) {
+        return this.http.post<Favorite>(`${environment.api}/favoriteRecipes`, model);
+    }
+    put(id: string, model: Favorite) {
+        return this.http.put<Favorite>(`${environment.api}/favoriteRecipes/${id}`, model);
+    }
+    update(id: string, model: Favorite) {
+        return this.http.patch<Favorite>(`${environment.api}/favoriteRecipes/${id}`, model);
+    }
 }
