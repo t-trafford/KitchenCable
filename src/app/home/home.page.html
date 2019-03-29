@@ -26,7 +26,9 @@
             {{recipe.title}} 
         </ion-col>
         <ion-col text-right (click)="addFavorite(recipe.id)">
-            <ion-icon name='star-outline'></ion-icon>
+            <ion-icon *ngIf="addFavorite" name='star-outline'></ion-icon>
+            <!-- <ion-icon *ngIf="addFavorite" name='star'></ion-icon> -->
+
         </ion-col>
        
         

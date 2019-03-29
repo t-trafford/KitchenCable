@@ -91,6 +91,18 @@ export class RecipeService {
       );
   }
 
+  getRecipesNutritionNew(id: string): Observable<any> {
+    return this.http
+      .get<any>(
+        `${environment.api}/${this.urls.recipe_ingredient_url(id)}`,
+        this.httpOptions
+      )
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
+  }
+
 
   getAutocompleteRecipe(): Observable<any> {
     return this.http

@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
   constructor(private recipe: RecipeService, public loadingCtrl: LoadingController,
     private favoriteService: FavoriteService,
     private router: Router,
+    private alertService: AlertMessageService,
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -34,6 +35,7 @@ export class HomePage implements OnInit {
   }
   addFavorite(id: string): void {
     this.favorite.recipe = id;
+    this.alertService.presentToast('Recipe Added As Favorite!');
     this.favoriteService.post(this.favorite).subscribe(
       res => {
         console.log('Added Successfully!!');

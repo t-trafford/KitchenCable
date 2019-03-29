@@ -27,7 +27,8 @@ export class FavoriteService {
     update(id: string, model: Favorite) {
         return this.http.patch<Favorite>(`${environment.api}/favoriteRecipes/${id}`, model);
     }
-    remove(id: string, model: Favorite) {
+    remove(id: string) {
         return this.http.delete<Favorite>(`${environment.api}/favoriteRecipes/${id}`);
     }
+
 }

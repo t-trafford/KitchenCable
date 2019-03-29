@@ -1,16 +1,15 @@
 
+
+
 <ion-content padding>
-
-<div class="demo-1">Nutrition:</div>
-<ion-card>
-
-  <ion-card-content [innerHtml]="recipe_nutrition">
-      <!-- {{}} get response body its all html  -->
-  </ion-card-content>
-
-  <!-- https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=596be468e4b02ae5957fb398  -->
-
-</ion-card>
-
-
-</ion-content>
+    <div class="demo-1">Nutrition: </div>
+    <ion-card *ngFor="let kida of recipe_nutrition">
+          <ion-row>
+            <ion-col>
+                {{kida.title}}&nbsp; {{kida.amount}}&nbsp; {{kida.unit}}
+            </ion-col>
+          </ion-row>
+        <!-- iterate over array see this link extendedIngredients https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=55e1ba5ee4b0a29b2c360756 -->
+    </ion-card>
+    </ion-content>
+    

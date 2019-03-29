@@ -23,10 +23,22 @@ export class NutritionPage implements OnInit  {
     }
   }
 
+  // get_details() {
+  //   this.recipe.getRecipesNutrition(this.params.id).subscribe(
+  //     res => {
+  //         this.recipe_nutrition = res.body || res;
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }
+
+
   get_details() {
-    this.recipe.getRecipesNutrition(this.params.id).subscribe(
+    this.recipe.getRecipesIngredient(this.params.id).subscribe(
       res => {
-          this.recipe_nutrition = res.body || res;
+        this.recipe_nutrition = res.nutrition.nutrients
       },
       err => {
         console.log(err);
@@ -34,3 +46,6 @@ export class NutritionPage implements OnInit  {
     );
   }
 }
+
+
+
