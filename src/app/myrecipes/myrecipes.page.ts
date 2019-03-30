@@ -39,7 +39,8 @@ export class MyrecipesPage implements OnInit {
     );
   }
 
-  addFavorite(id: string): void {
+  addFavorite(id: string, recipe): void {
+    recipe.isFavorite = true;
     this.favorite.recipe = id;
     this.alertService.presentToast('Recipe Added As Favorite!');
     this.favoriteService.post(this.favorite).subscribe(

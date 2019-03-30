@@ -5,47 +5,47 @@
 </ion-header>
 
 <ion-content padding>
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmpassword']" novalidate>
+    <form name="form" (ngSubmit)="form.valid && signup()" #form="ngForm" [mustMatch]="['password', 'confirmpassword']" novalidate>
         <ion-item class="form-group">
           <ion-label for="firstname" position="floating">First Name</ion-label>
-          <ion-input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstname" #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required ></ion-input>
+          <ion-input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel" [ngClass]="{ 'is-invalid': form.submitted && firstname.invalid }" required ></ion-input>
         </ion-item>
-        <div *ngIf="f.submitted && firstname.invalid" class="invalid-feedback">
+        <div *ngIf="form.submitted && firstname.invalid" class="invalid-feedback">
             <div style="color:red; padding-top: 0.2rem"  *ngIf="firstname.errors.required">First Name is required</div>
         </div>
         <ion-item class="form-group">
             <ion-label for="lastname" position="floating">Last Name</ion-label>
-            <ion-input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }" required ></ion-input>
+            <ion-input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" #lastname="ngModel" [ngClass]="{ 'is-invalid': form.submitted && lastname.invalid }" required ></ion-input>
           </ion-item>
-        <div *ngIf="f.submitted && lastname.invalid" class="invalid-feedback">
+        <div *ngIf="form.submitted && lastname.invalid" class="invalid-feedback">
             <div style="color:red; padding-top: 0.2rem"  *ngIf="lastname.errors.required">Last Name is required</div>
         </div>
         <ion-item class="form-group">
           <ion-label position="floating" for="email">Email</ion-label>
-          <ion-input type="Email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email ></ion-input>
+          <ion-input type="Email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': form.submitted && email.invalid }" required email ></ion-input>
         </ion-item>
-        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="form.submitted && email.invalid" class="invalid-feedback">
             <div style="color:red; padding-top: 0.2rem"  *ngIf="email.errors.required">Email is required</div>
             <div style="color:red; padding-top: 0.2rem"  *ngIf="email.errors.email">Email must be a valid email address</div>
         </div>
         <ion-item class="form-group">
           <ion-label for="password" position="floating">Password</ion-label>
-          <ion-input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" ></ion-input>
+          <ion-input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': form.submitted && password.invalid }" required minlength="6" ></ion-input>
         </ion-item>
-        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="form.submitted && password.invalid" class="invalid-feedback">
             <div style="color:red; padding-top: 0.2rem" *ngIf="password.errors.required">Password is required</div>
             <div style="color:red; padding-top: 0.2rem" *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
         </div>
         <ion-item class="form-group">
           <ion-label position="floating" for="confirmpassword">Confirm Password</ion-label>
-          <ion-input type="password" class="form-control" name="confirmpassword" [(ngModel)]="model.confirmpassword" #confirmpassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmpassword.invalid }" required ></ion-input>
+          <ion-input type="password" class="form-control" name="confirmpassword" [(ngModel)]="model.confirmpassword" #confirmpassword="ngModel" [ngClass]="{ 'is-invalid': form.submitted && confirmpassword.invalid }" required ></ion-input>
         </ion-item>
-        <div *ngIf="f.submitted && confirmpassword.invalid" class="invalid-feedback">
+        <div *ngIf="form.submitted && confirmpassword.invalid" class="invalid-feedback">
             <div style="color:red; padding-top: 0.2rem" *ngIf="confirmpassword.errors.required">Confirm Password is required</div>
             <div style="color:red; padding-top: 0.2rem" *ngIf="confirmpassword.errors.mustMatch">Passwords must match</div>
         </div>
         <br>
-        <ion-button (click)="signup()">Signup</ion-button>&nbsp;&nbsp;
+        <ion-button type="submit">Signup</ion-button>&nbsp;&nbsp;
         <ion-button href="/login">Login</ion-button>
       </form>
       </ion-content>

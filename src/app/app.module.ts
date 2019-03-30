@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { RecipeService } from './_services/recipe.service';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AutoCompleteModule } from 'ionic4-auto-complete';
 
 export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   shouldDetach(route: ActivatedRouteSnapshot): boolean { return false; }
@@ -32,8 +33,10 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    AutoCompleteModule
    
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [
     StatusBar,
     SplashScreen,

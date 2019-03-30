@@ -3,6 +3,7 @@ import { ToastController } from '@ionic/angular';
 
 import { UserService, LocalDataService, AlertMessageService } from '../_services';
 import { User, TitleModel } from '../_models';
+import { CompleteTestService } from '../_services/autocomplete.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,8 @@ export class ProfilePage implements OnInit {
 
   constructor(private userService: UserService,
     private alertService: AlertMessageService,
-    private localDataService: LocalDataService) { }
+    private localDataService: LocalDataService,
+    public completeTestService: CompleteTestService) { }
 
   ngOnInit() {
     this.get_models();
