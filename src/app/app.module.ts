@@ -13,7 +13,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { RecipeService } from './_services/recipe.service';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { AutoCompleteModule } from 'ionic4-auto-complete';
 
 export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   shouldDetach(route: ActivatedRouteSnapshot): boolean { return false; }
@@ -32,9 +31,7 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-    AutoCompleteModule
-   
+    HttpClientModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [

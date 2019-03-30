@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({  providedIn: 'root'})
 export class CompleteTestService implements AutoCompleteService {
-  labelAttribute = "name";
+  labelAttribute = "title";
 
   urls = {
     random_recipe_url: '/rapidApi/recipes/random?number=20',
@@ -43,7 +43,7 @@ export class CompleteTestService implements AutoCompleteService {
 
         return this.http
         .get<any>(
-          `${environment.api}/${this.urls.recipe_autocompleteingredient_url}`
+          `${environment.api}/${this.urls.recipe_autocompleteingredient_url}${keyword}`
         )
         .pipe(
           map(this.extractData),

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { AutoCompleteModule } from 'ionic4-auto-complete';
 
 import { IonicModule } from '@ionic/angular';
 
 import { ProfilePage } from './profile.page';
-
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AutoCompleteModule
   ],
   declarations: [ProfilePage]
 })
