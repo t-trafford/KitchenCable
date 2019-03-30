@@ -31,6 +31,7 @@ export class RecipeService {
     // recipe_searchrecipe_url: '/recipes/search?query=',
     recipe_autocompleteingredient_url: '/rapidApi/recipes/autocomplete?query=',
     recipe_guessnutrition_url: '/rapidApi/recipes/guessNutrition?ingredients=',
+    recipe_substituteingredient_url: '/rapidApi/food/ingredients/substitutes?',
 
   };
   constructor(private http: HttpClient) {}
@@ -79,10 +80,10 @@ export class RecipeService {
       );
   }
 
-  getRecipesNutrition(id: string): Observable<any> {
+  getSubstituteIngredient(): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.api}/${this.urls.recipe_nutrition_url(id)}`,
+        `${environment.api}/${this.urls.recipe_substituteingredient_url}`,
         this.httpOptions
       )
       .pipe(
