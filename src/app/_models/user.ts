@@ -11,6 +11,7 @@ export class User {
     name: string;
     email: string;
     role: string;
+    mealPlanner: any;
     diets: string[];
     intolerances: string[];
     excluded_ingredients: string[];
