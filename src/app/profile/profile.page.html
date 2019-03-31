@@ -34,14 +34,22 @@
     </ion-card>
 
     <ion-card>
-        <ion-item>
-            <ion-label class="demo-2" position="floating">Excluded Ingredients:</ion-label>
-            <ion-input type=text></ion-input>
-            <ion-auto-complete [dataProvider]="completeTestService"></ion-auto-complete>
-          </ion-item>
-          <br>
       <ion-item>
-        <ion-button size=default slot="start">Add</ion-button>
+        <ion-label class="demo-2" position="floating">Excluded Ingredients:</ion-label>
+        <!-- <ion-input type=text></ion-input> -->
+        <ion-auto-complete [dataProvider]="completeTestService" #searchbar></ion-auto-complete>
+      </ion-item>
+
+      <br>
+
+      <ion-item>
+        <ion-button size=default slot="start" (click)="addExcludedIngredients(ingredient)">Add</ion-button>
+      </ion-item>
+
+      <br>
+      
+      <ion-item *ngFor="let excluded_ingredient of user.excluded_ingredients">
+        <ion-label class="demo-3">{{excluded_ingredient}}</ion-label>
       </ion-item>
     </ion-card>
 

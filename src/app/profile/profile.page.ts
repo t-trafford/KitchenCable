@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 import { UserService, LocalDataService, AlertMessageService } from '../_services';
 import { User, TitleModel } from '../_models';
 import { CompleteTestService } from '../_services/autocomplete.service';
+import { AutoCompleteComponent } from 'ionic4-auto-complete';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,9 @@ export class ProfilePage implements OnInit {
   diets: TitleModel[];
   intolerances: TitleModel[];
   user: User = <User>{};
+
+  @ViewChild('searchbar')
+  searchbar: AutoCompleteComponent;
 
   constructor(private userService: UserService,
     private alertService: AlertMessageService,
@@ -48,6 +52,14 @@ export class ProfilePage implements OnInit {
     this.intolerances.forEach(intolerance => {
       intolerance.isChecked = this.user.intolerances.some(a => a === intolerance.title);
     });
+  }
+
+  addExcludedIngredients(){
+    const ingredient = this.searchbar.getValue();
+    if(!this.user.excluded_ingredients.includes(ingredient)){
+      this.user.excluded_ingredients.push(ingredient);
+      this.searchbar.clearValue();
+    }
   }
 
   save() {
