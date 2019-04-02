@@ -1,3 +1,58 @@
 <ion-content padding>
 
+    <ion-item>
+        <ion-icon name="arrow-round-back" (click)="onChangeWeek(-7)"></ion-icon>
+        <ion-label>Week</ion-label>
+        <ion-icon name="arrow-round-forward" (click)="onChangeWeek(7)"></ion-icon>
+    </ion-item>
+
+
+    <div *ngFor="let day of weekDays">
+        <ion-label>Date {{day | date : 'MM/dd/yyyy'}}</ion-label>
+
+        <ion-item *ngIf="user.mealPlanner[day]['breackfast']">
+            <ion-card>
+                <ion-item>
+                    <ion-label>Break Fast</ion-label>
+                </ion-item>
+
+                <ion-card-content>
+                    <ion-item href="#" class="activated" *ngFor="let item of user.mealPlanner[day]['breackfast']">
+                        <ion-icon name="wifi" slot="start"></ion-icon>
+                        <ion-label>{{item.title}}</ion-label>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </ion-item>
+
+        <ion-item *ngIf="user.mealPlanner[day]['lunch']">
+            <ion-card>
+                <ion-item>
+                    <ion-label>Lunch</ion-label>
+                </ion-item>
+
+                <ion-card-content>
+                    <ion-item href="#" class="activated" *ngFor="let item of user.mealPlanner[day]['lunch']">
+                        <ion-icon name="wifi" slot="start"></ion-icon>
+                        <ion-label>{{item.title}}</ion-label>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </ion-item>
+
+        <ion-item *ngIf="user.mealPlanner[day]['dinner']">
+            <ion-card>
+                <ion-item>
+                    <ion-label>Dinner</ion-label>
+                </ion-item>
+
+                <ion-card-content>
+                    <ion-item href="#" class="activated" *ngFor="let item of user.mealPlanner[day]['dinner']">
+                        <ion-icon name="wifi" slot="start"></ion-icon>
+                        <ion-label>{{item.title}}</ion-label>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </ion-item>
+    </div>
 </ion-content>
