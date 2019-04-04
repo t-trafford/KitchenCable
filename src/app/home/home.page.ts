@@ -7,6 +7,7 @@ import { ToastController } from '@ionic/angular';
 import { FavoriteService, LocalDataService, AlertMessageService } from '../_services';
 import { Favorite} from '../_models';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AutoCompleteComponent } from 'ionic4-auto-complete';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +34,10 @@ export class HomePage implements OnInit {
       }
     );
   }
-  addFavorite(id: string): void {
+
+  
+  addFavorite(id: string, recipe): void {
+    recipe.isFavorite = true;
     this.favorite.recipe = id;
     this.alertService.presentToast('Recipe Added As Favorite!');
     this.favoriteService.post(this.favorite).subscribe(

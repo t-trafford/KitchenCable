@@ -26,7 +26,7 @@ export class DailyPage implements OnInit {
     public modalController: ModalController
   ) {}
 
-  setData(date){
+  public setData(date){
     this.selectedDate = new Date(new Date(date).setHours(0,0,0,0)).toISOString();
 
       this.mealPlanner = this.user.mealPlanner[this.selectedDate] || {
