@@ -21,10 +21,11 @@ export class WeeklyPage implements OnInit {
     this.selectedDate = d;
 
     this.weekDays.push(d.toISOString());
+    this.user.mealPlanner = this.user.mealPlanner || {};
     this.user.mealPlanner[d.toISOString()] = this.user.mealPlanner[d.toISOString()] || {};
 
     for (let index = 0; index < 6; index++) {
-      const t = new Date(d.setDate(d.getDate()+ 1))
+      const t = new Date(d.setDate(d.getDate()+ 1));
       this.weekDays.push(t.toISOString());
       this.user.mealPlanner[t.toISOString()] = this.user.mealPlanner[t.toISOString()] || {};
     }
