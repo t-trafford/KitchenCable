@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 
 
 @Injectable({  providedIn: 'root'})
-export class CompleteTestService implements AutoCompleteService {
+export class CompleteTestService2 implements AutoCompleteService {
   labelAttribute = "title";
 
   urls = {
@@ -21,8 +21,8 @@ export class CompleteTestService implements AutoCompleteService {
     recipe_ingredient_url: (id) => `/rapidApi/recipes/${id}/information?`,
     recipe_steps_url: (id) => `/rapidApi/recipes/${id}/analyzedInstructions?`,
     recipe_nutrition_url: (id) => `/rapidApi/food/products/${id}/nutritionWidget?`,
-    recipe_autocompleterecipe_url: '/recipes/autocomplete?query=',
-    recipe_searchrecipe_url: '/recipes/search?query=',
+    recipe_autocompleterecipe_url: '/rapidApi/recipes/autocomplete?query=',
+    recipe_searchrecipe_url: '/rapidApi/recipes/search?query=',
     recipe_autocompleteingredient_url: '/rapidApi/recipes/autocomplete?query=',
     recipe_guessnutrition_url: '/rapidApi/recipes/guessNutrition?ingredients=',
     recipe_substituteingredient_url: '/rapidApi/food/ingredients/substitutes?',
@@ -43,7 +43,7 @@ export class CompleteTestService implements AutoCompleteService {
 
         return this.http
         .get<any>(
-          `${environment.api}/${this.urls.recipe_autocompleteingredient_url}${keyword}`
+          `${environment.api}/${this.urls.recipe_autocompleterecipe_url}${keyword}`
         )
         .pipe(
           map(this.extractData),

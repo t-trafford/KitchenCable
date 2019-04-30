@@ -8,7 +8,7 @@ import { FavoriteService, LocalDataService, AlertMessageService } from '../_serv
 import { Favorite} from '../_models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AutoCompleteComponent } from 'ionic4-auto-complete';
-
+import { CompleteTestService2 } from '../_services/autocompleterecipe.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -21,7 +21,8 @@ export class HomePage implements OnInit {
     private favoriteService: FavoriteService,
     private router: Router,
     private alertService: AlertMessageService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    public completeTestService2: CompleteTestService2) {}
 
   ngOnInit(): void {
 

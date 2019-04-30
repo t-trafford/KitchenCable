@@ -18,6 +18,7 @@ export class MyingredientPage implements OnInit {
 
   @ViewChild('searchbar')
   searchbar: AutoCompleteComponent;
+  
   constructor(private ingredientService: IngredientService, public completeTestService: CompleteTestService, private userService: UserService,
     private alertService: AlertMessageService,
     private localDataService: LocalDataService,) { }
@@ -37,10 +38,10 @@ export class MyingredientPage implements OnInit {
     );
   }
 
-  addIngredients(){
-    const ingredient = this.searchbar.getValue();
-    if(!this.ingredients.includes(ingredient)){
-      this.ingredients.push(ingredient);
+  addIngredient(){
+    const ing = this.searchbar.getValue();
+    if(!this.ingredients.includes(ing)){
+      this.ingredients.push(ing);
       this.searchbar.clearValue();
     }
   }

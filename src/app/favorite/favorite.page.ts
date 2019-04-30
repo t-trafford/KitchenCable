@@ -40,12 +40,13 @@ export class FavoritePage implements OnInit {
 
 
 
-  remove_favorite_recipes(id: string): void {
-    this.favorite.recipes = id;
+  remove_favorite_recipes(id: string, recipe): void {
+    this.favorite.recipe = id;
     this.alertService.presentToast('Recipe Removed From Favorite!');
-    this.favoriteService.remove(this.favorite.recipes).subscribe(
+    this.favoriteService.remove(this.favorite.recipe).subscribe(
       res => {
         console.log('Removed Successfully!!');
+        this.get_favorite_recipes();
       },
       err => {
         console.log(err);
@@ -53,5 +54,18 @@ export class FavoritePage implements OnInit {
     );
   }
 
+  // addFavorite(id: string, recipe): void {
+  //   recipe.isFavorite = true;
+  //   this.favorite.recipe = id;
+  //   this.alertService.presentToast('Recipe Added As Favorite!');
+  //   this.favoriteService.post(this.favorite).subscribe(
+  //     res => {
+  //       console.log('Added Successfully!!');
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }
 
 }
