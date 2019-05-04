@@ -42,13 +42,14 @@ export class FavoritePage implements OnInit {
 
   remove_favorite_recipes(id: string, recipe): void {
     this.favorite.recipe = id;
-    this.alertService.presentToast('Recipe Removed From Favorite!');
     this.favoriteService.remove(this.favorite.recipe).subscribe(
       res => {
+        this.alertService.presentToast('Recipe Removed From Favorite!');
         console.log('Removed Successfully!!');
         this.get_favorite_recipes();
       },
       err => {
+        this.alertService.presentToast('Not able to remove recipe from favorite. Please contact administrator.');
         console.log(err);
       }
     );

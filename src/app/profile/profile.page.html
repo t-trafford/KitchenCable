@@ -36,20 +36,20 @@
     <ion-card>
       <ion-row>
         <ion-col class="demo-2" position="floating">Excluded Ingredients:</ion-col>
-        
-        <ion-auto-complete [dataProvider]="completeTestService"></ion-auto-complete>
+        <ion-auto-complete (itemSelected)="itemSelected($event)" [dataProvider]="completeTestService" ></ion-auto-complete>
+        <!-- <ion-auto-complete [dataProvider]="completeTestService"></ion-auto-complete> -->
       </ion-row>
 
       <br>
 
 
-      <ion-button size=small style="padding-left: 13.4rem"  (click)="addExcludedIngredients(ingredient)">Add</ion-button>
+      <ion-button size=small style="padding-left: 13.4rem"  (click)="addExcludedIngredients()">Add</ion-button>
 
       <br>
       
       <ion-row *ngFor="let excluded_ingredient of user.excluded_ingredients">
         <ion-col size=10>{{excluded_ingredient}} </ion-col>
-          <ion-col><ion-icon name="trash"></ion-icon></ion-col>
+          <ion-col><ion-icon name="trash" (click)="remove(excluded_ingredient)"></ion-icon></ion-col>
       </ion-row>
     </ion-card>
 

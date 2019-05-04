@@ -28,7 +28,7 @@ export class RecipeService {
     recipe_steps_url: (id) => `/rapidApi/recipes/${id}/analyzedInstructions?`,
     recipe_nutrition_url: (id) => `/rapidApi/food/products/${id}/nutritionWidget?`,
     recipe_autocompleterecipe_url: '/recipes/autocomplete?query=',
-    // recipe_searchrecipe_url: '/recipes/search?query=',
+    recipe_searchrecipe_url: '/rapidApi/recipes/search?query=',
     recipe_autocompleteingredient_url: '/rapidApi/recipes/autocomplete?query=',
     recipe_guessnutrition_url: '/rapidApi/recipes/guessNutrition?ingredients=',
     recipe_substituteingredient_url: '/rapidApi/food/ingredients/substitutes?',
@@ -40,6 +40,17 @@ export class RecipeService {
     return this.http
       .get<any>(
         `${environment.api}/${this.urls.random_recipe_url}`
+      )
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
+  }
+
+  search(searchText: string): Observable<any> {
+    return this.http
+      .get<any>(
+        `${environment.api}/${this.urls.recipe_searchrecipe_url}${searchText}`
       )
       .pipe(
         map(this.extractData),

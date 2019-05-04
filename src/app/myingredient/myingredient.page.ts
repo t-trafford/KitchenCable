@@ -15,6 +15,7 @@ import { User, TitleModel } from '../_models';
 export class MyingredientPage implements OnInit {
   ingredients: any = [];
   user: User = <User>{};
+  ingredientText: string;
 
   @ViewChild('searchbar')
   searchbar: AutoCompleteComponent;
@@ -39,10 +40,36 @@ export class MyingredientPage implements OnInit {
   }
 
   addIngredient(){
-    const ing = this.searchbar.getValue();
-    if(!this.ingredients.includes(ing)){
-      this.ingredients.push(ing);
-      this.searchbar.clearValue();
+    if (this.searchbar) {
+      const ing = this.searchbar.getValue();
+      if(!this.ingredients.includes(ing)){
+        this.ingredients.push(ing);
+        this.searchbar.clearValue();
+      } 
+    }
+
+
+    if (this.ingredientText) {
+      this.ingredientService.parse({ingredientText: this.ingredientText}).subscribe(
+        res => {
+          console.log(res);
+          delete this.ingredientText;
+          this.get_my_ingredient_recipes();
+        },
+        err => {
+          console.log(err);
+          this.alertService.presentToast('Not able to add ingredients!', 'danger');
+        }
+      );
+    } else {
+      this.alertService.presentToast('No ingredients to add! Please add/parse valid ingredient list file.', 'danger');
+    }
+  }
+
+  itemSelected($event){
+    console.log($event);
+    if($event && $event.title){
+      this.ingredientText = $event.title;
     }
   }
 

@@ -15,6 +15,7 @@ export class ProfilePage implements OnInit {
   diets: TitleModel[];
   intolerances: TitleModel[];
   user: User = <User>{};
+  ingredientText: string;
 
   @ViewChild('searchbar')
   searchbar: AutoCompleteComponent;
@@ -40,6 +41,13 @@ export class ProfilePage implements OnInit {
     });
   }
 
+  itemSelected($event){
+    console.log($event);
+    if($event && $event.title){
+      this.ingredientText = $event.title;
+    }
+  }
+
   get_models() {
     this.diets = this.localDataService.getAllDiets();
     this.intolerances = this.localDataService.getAllIntolerances();
@@ -55,10 +63,19 @@ export class ProfilePage implements OnInit {
   }
 
   addExcludedIngredients(){
-    const ingredient = this.searchbar.getValue();
-    if(!this.user.excluded_ingredients.includes(ingredient)){
+    const ingredient = this.ingredientText || ''; // this.searchbar.getValue();
+    if(this.ingredientText && !this.user.excluded_ingredients.includes(ingredient)){
       this.user.excluded_ingredients.push(ingredient);
-      this.searchbar.clearValue();
+      this.ingredientText = '';
+      // this.searchbar.clearValue();
+    }
+  }
+
+  remove(excluded_ingredient: string) {
+    if (excluded_ingredient) {
+      this.user.excluded_ingredients =  this.user.excluded_ingredients.filter(ing=> {
+        return ing.toLowerCase() !== excluded_ingredient.toLowerCase();
+      });
     }
   }
 

@@ -6,7 +6,7 @@
     <br>
     <br>
     <br>
-    <ion-button type="button" (click)="parseFile()">Parse</ion-button>
+    <ion-button type="button" [disabled]="!file_model" (click)="parseFile()">Parse</ion-button>
 
     <ion-list>
         <ion-item *ngFor="let item of ingredients">

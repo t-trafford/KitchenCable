@@ -23,7 +23,7 @@ export class CompleteTestService implements AutoCompleteService {
     recipe_nutrition_url: (id) => `/rapidApi/food/products/${id}/nutritionWidget?`,
     recipe_autocompleterecipe_url: '/recipes/autocomplete?query=',
     recipe_searchrecipe_url: '/recipes/search?query=',
-    recipe_autocompleteingredient_url: '/rapidApi/recipes/autocomplete?query=',
+    recipe_autocompleteingredient_url: '/rapidApi/ingredients/autocomplete?query=',
     recipe_guessnutrition_url: '/rapidApi/recipes/guessNutrition?ingredients=',
     recipe_substituteingredient_url: '/rapidApi/food/ingredients/substitutes?',
 

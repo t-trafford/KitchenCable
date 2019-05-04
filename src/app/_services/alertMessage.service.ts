@@ -5,11 +5,16 @@ import { ToastController } from '@ionic/angular';
 export class AlertMessageService {
   constructor(private toastController: ToastController) {}
 
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
+  async presentToast(message: string, color?: string) {
+    const opt: any = {
       message: message, // 'Your settings have been saved.',
-      duration: 2000
-    });
+      duration: 2000,
+      // color: 'success'
+    };
+    if (color) {
+      opt.color = color; // danger
+    }
+    const toast = await this.toastController.create(opt);
     toast.present();
   }
 

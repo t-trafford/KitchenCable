@@ -12,7 +12,9 @@
 
 <ion-content>
 
-    <ion-searchbar animated name="searchitem" ngModel></ion-searchbar>
+    <ion-searchbar animated name="searchitem"
+    (ionChange)="search()" debounce="500"
+    [(ngModel)]="textSearch"></ion-searchbar>
 
     <ion-card class="welcome-card" *ngFor="let recipe of recipes">
       <ion-row (click)="viewDeatils(recipe)">

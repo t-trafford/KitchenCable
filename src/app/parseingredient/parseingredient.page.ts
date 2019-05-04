@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'ts-xlsx';
 import { IngredientService } from '../_services/ingredient.service';
 import { Router } from '@angular/router';
+import { AlertMessageService } from '../_services';
 
 @Component({
   selector: 'app-parseingredient',
@@ -14,7 +15,8 @@ export class ParseingredientPage implements OnInit {
   file: File;
   file_model: any;
   ingredients: string[];
-  constructor(private ingredientService: IngredientService, private router: Router) { }
+  constructor(private ingredientService: IngredientService, private router: Router,
+    private alertService: AlertMessageService) { }
 
   ngOnInit() {
   }
@@ -42,22 +44,28 @@ export class ParseingredientPage implements OnInit {
       });
     };
     fileReader.readAsArrayBuffer(this.file);
+    this.file_model = undefined;
   }
 
   save() {
-    this.ingredientService.parse({ingredientText: this.ingredients.join(' ')}).subscribe(
-      res => {
-        console.log(res);
-        delete this.arrayBuffer;
-        delete this.file;
-        delete this.ingredients;
-        delete this.file_model;
-        this.router.navigate(['/list/tabs/tab2']);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    if (this.ingredients && this.ingredients.length) {
+      this.ingredientService.parse({ingredientText: this.ingredients.join(' ')}).subscribe(
+        res => {
+          console.log(res);
+          delete this.arrayBuffer;
+          delete this.file;
+          delete this.ingredients;
+          delete this.file_model;
+          this.router.navigate(['/list/tabs/tab2']);
+        },
+        err => {
+          console.log(err);
+          this.alertService.presentToast('Not able to add ingredients!', 'danger');
+        }
+      );
+    } else {
+      this.alertService.presentToast('No ingredients to add! Please add/parse valid ingredient list file.', 'danger');
+    }
   }
 
 }
