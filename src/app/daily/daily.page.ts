@@ -28,6 +28,7 @@ export class DailyPage implements OnInit {
 
   public setData(date){
     this.selectedDate = new Date(new Date(date).setHours(0,0,0,0)).toISOString();
+    this.user.mealPlanner = this.user.mealPlanner || {};
 
       this.mealPlanner = this.user.mealPlanner[this.selectedDate] || {
         breackfast: [],
