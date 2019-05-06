@@ -1,25 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          Add Meal Item
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content>
+
 <ion-searchbar animated name="searchitem"
 (ionChange)="search()" debounce="500"
 [(ngModel)]="textSearch"></ion-searchbar>
 
-<ion-card class="welcome-card" *ngFor="let recipe of recipes">
+<ion-card *ngFor="let recipe of recipes">
   <ion-row (click)="addToMealPlanner(recipe)">
     <img src="{{recipe.image}}" height="140" width="100"/>
   </ion-row>
 
    
+      <ion-row align-self-stretch>
+        <ion-col>
+            {{recipe.title}} 
+        </ion-col>
+        
+       
+        
+      </ion-row>
 
-  <!-- <ion-row align-self-stretch>
-    <ion-col size="10">
-        {{recipe.title}} 
-    </ion-col>
-    <ion-col text-right (click)="addFavorite(recipe.id)">
-        <ion-icon *ngIf="addFavorite" name='star-outline'></ion-icon>
-        <ion-icon *ngIf="addFavorite" name='star'></ion-icon>
-
-    </ion-col>
-   
-    
-  </ion-row> -->
+  
 
 </ion-card>
+</ion-content>

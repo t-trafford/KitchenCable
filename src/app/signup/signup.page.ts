@@ -39,7 +39,7 @@ export class SignupPage implements OnInit {
         if (item) {
           console.log('user registered in successfully', item);
           this.router.navigate(['/home']);
-          this.alertService.presentToast('User Created Successfully!');
+          this.alertService.presentToast('User Created Successfully!', 'success');
 
         }
       },

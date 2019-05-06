@@ -62,7 +62,7 @@ export class MyingredientPage implements OnInit {
         }
       );
     } else {
-      this.alertService.presentToast('No ingredients to add! Please add/parse valid ingredient list file.', 'danger');
+      this.alertService.presentToast('ingredient cannot be added! Please add valid ingredient.', 'danger');
     }
   }
 

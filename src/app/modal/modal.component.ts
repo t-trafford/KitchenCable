@@ -5,6 +5,7 @@ import { RecipeService } from '../_services';
 @Component({
   selector: 'modal-page',
   templateUrl: "./modal.html",
+  styleUrls: ['modal.page.scss']
 })
 export class ModalPage implements OnInit  {
 

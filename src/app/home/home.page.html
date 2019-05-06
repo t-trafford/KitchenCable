@@ -16,7 +16,7 @@
     (ionChange)="search()" debounce="500"
     [(ngModel)]="textSearch"></ion-searchbar>
 
-    <ion-card class="welcome-card" *ngFor="let recipe of recipes">
+    <ion-card class="" *ngFor="let recipe of recipes">
       <ion-row (click)="viewDeatils(recipe)">
         <img src="{{recipe.image}}" height="140" width="100"/>
       </ion-row>

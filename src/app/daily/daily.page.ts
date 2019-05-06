@@ -87,7 +87,7 @@ export class DailyPage implements OnInit {
     this.userService
       .update(this.user._id || this.user["id"], this.user)
       .subscribe(usr => {
-        this.alertService.presentToast("Profile saved Successfully!");
+        this.alertService.presentToast("Added To Meal Plan Successfully!", 'success');
         this.fetch_user_details();
       });
   }

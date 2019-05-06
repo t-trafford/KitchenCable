@@ -66,7 +66,7 @@ export class HomePage implements OnInit {
     this.favoriteService.post(this.favorite).subscribe(
       res => {
         console.log('Added Successfully!!');
-        this.alertService.presentToast('Recipe Added As Favorite!');
+        this.alertService.presentToast('Recipe Added As Favorite!', 'success');
       },
       err => {
         console.log(err);
