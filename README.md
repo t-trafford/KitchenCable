@@ -6,7 +6,6 @@
  - [Node v7.6+](https://nodejs.org/en/download/current/) or [Docker](https://www.docker.com/)
  - [ionic4](https://ionicframework.com/docs/installation/cli)
  - [cordova](https://cordova.apache.org/docs/en/latest/guide/cli/)
- - [angular7] (https://angular.io/guide/quickstart)
 
 ## Getting Started
 
